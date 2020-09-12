@@ -16,9 +16,9 @@ void *thread_loop(void *arg){
 }  
 
 int main(void) {
-    pthread_t thread[THREAD_COUNT];
     int i;
     int thread_count;
+    pthread_t thread[THREAD_COUNT];
     int error_no;
     int is_looping = 1;
 
@@ -31,7 +31,7 @@ int main(void) {
             break;
         }
         if ((i % 100) == 0) {
-            printf("create %d threads.\n", i);
+            printf("%d threads created.\n", i);
         }
     }
     thread_count = i;
@@ -39,7 +39,7 @@ int main(void) {
     for(i=0; i < thread_count; i++){
         pthread_join(thread[i], NULL);
     }
-    printf("Result: Thread is %d.\n", i);
+    printf("Result: %d threads created.\n", thread_count);
 
     return 0;
 }
