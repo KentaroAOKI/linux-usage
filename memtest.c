@@ -18,14 +18,14 @@ int main(void) {
     for (i = 0; i < MEM_COUNT; i++)
     {
         allocs[i] = malloc(MEM_ALLC);
-        memset(allocs[i], 0, MEM_ALLC);
         if (allocs[i] == NULL)
         {
             printf("Error: %s\n", strerror(errno));
             break;
         }
+        memset(allocs[i], 0, MEM_ALLC);
         if ((i % 100) == 0) {
-            printf("%dGB memory allocated.\n", (i)/1024);
+            printf("%dMB memory allocated.\n", i);
             sleep(1);
         }
     }
